@@ -1,5 +1,5 @@
 import React from 'react';
-
+import type { Block } from 'payload';
 
 type TeaserCardProps = {
   title: string;
@@ -9,10 +9,8 @@ type TeaserCardProps = {
   buttonLink?: string;
 };
 
+// ✅ Komponent do renderowania bloku
 export const TeaserCardBlock: React.FC<TeaserCardProps> = ({ title, description, image, buttonText, buttonLink }) => {
-
-    console.log('test');
-
   return (
     <div className="teaser-card">
       {image?.url && <img src={image.url} alt={title} className="teaser-card__image" />}
@@ -26,5 +24,3 @@ export const TeaserCardBlock: React.FC<TeaserCardProps> = ({ title, description,
     </div>
   );
 };
-
-

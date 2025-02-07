@@ -37,5 +37,3 @@ export const TeaserCard: Block = {
     },
   ],
 };
-
-export default TeaserCard;
