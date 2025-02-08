@@ -8,6 +8,7 @@ import { Content } from '../../blocks/Content/config'
 import { FormBlock } from '../../blocks/Form/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { TeaserCard } from '../../blocks/TeaserCard/config'
+import { Grid } from '../../blocks/Grid/config'
 
 import { hero } from '@/heros/config'
 import { slugField } from '@/fields/slug'
@@ -77,7 +78,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, TeaserCard],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, TeaserCard, Grid],
               required: true,
               admin: {
                 initCollapsed: true,

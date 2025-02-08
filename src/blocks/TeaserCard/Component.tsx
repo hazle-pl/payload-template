@@ -2,9 +2,9 @@ import React from 'react';
 import type { Block } from 'payload';
 
 type TeaserCardProps = {
-  title: string;
-  description: string;
-  image?: { url: string };
+  title?: string;
+  description?: string;
+  image?: { url?: string };
   buttonText?: string;
   buttonLink?: string;
 };

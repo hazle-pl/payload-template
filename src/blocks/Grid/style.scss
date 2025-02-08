@@ -1,0 +1,32 @@
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px
+);
+
+@mixin grid-cols($columns) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: 16px;
+}
+
+.grid {
+  @include grid-cols(1);
+
+  @each $breakpoint, $size in $breakpoints {
+    @media (min-width: $size) {
+      &-#{$breakpoint}-2 { @include grid-cols(2); }
+      &-#{$breakpoint}-3 { @include grid-cols(3); }
+      &-#{$breakpoint}-4 { @include grid-cols(4); }
+      &-#{$breakpoint}-5 { @include grid-cols(5); }
+      &-#{$breakpoint}-6 { @include grid-cols(6); }
+      &-#{$breakpoint}-7 { @include grid-cols(7); }
+      &-#{$breakpoint}-8 { @include grid-cols(8); }
+      &-#{$breakpoint}-9 { @include grid-cols(9); }
+      &-#{$breakpoint}-10 { @include grid-cols(10); }
+      &-#{$breakpoint}-11 { @include grid-cols(11); }
+      &-#{$breakpoint}-12 { @include grid-cols(12); }
+    }
+  }
+}

@@ -135,7 +135,7 @@ export interface Page {
       | null;
     media?: (string | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | TeaserCard)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | TeaserCard | Grid)[];
   meta?: {
     title?: string | null;
     /**
@@ -686,6 +686,22 @@ export interface TeaserCard {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Grid".
+ */
+export interface Grid {
+  columns: {
+    sm: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
+    md: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
+    lg: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
+    xl: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
+  };
+  content?: TeaserCard[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'grid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -975,6 +991,7 @@ export interface PagesSelect<T extends boolean = true> {
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         teaserCard?: T | TeaserCardSelect<T>;
+        grid?: T | GridSelect<T>;
       };
   meta?:
     | T
@@ -1084,6 +1101,27 @@ export interface TeaserCardSelect<T extends boolean = true> {
   image?: T;
   buttonText?: T;
   buttonLink?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Grid_select".
+ */
+export interface GridSelect<T extends boolean = true> {
+  columns?:
+    | T
+    | {
+        sm?: T;
+        md?: T;
+        lg?: T;
+        xl?: T;
+      };
+  content?:
+    | T
+    | {
+        teaserCard?: T | TeaserCardSelect<T>;
+      };
   id?: T;
   blockName?: T;
 }
