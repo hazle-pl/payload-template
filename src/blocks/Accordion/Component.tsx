@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import './style.scss';
 import { TeaserCardBlock } from '../TeaserCard/Component';
-import RichText from '@/components/RichText';
 import { RichTextComponentBlock } from '../RichTextComponent/Component';
 
 type AccordionItem = {
@@ -15,7 +14,7 @@ type AccordionProps = {
   items: AccordionItem[];
 };
 
-export const AccordionBalock: React.FC<AccordionProps> = ({ title, items }) => {
+export const AccordionBlock: React.FC<AccordionProps> = ({ title, items }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {

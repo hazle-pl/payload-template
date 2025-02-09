@@ -1,7 +1,7 @@
 import React from 'react';
-import type { Block } from 'payload';
 import { TeaserCardBlock } from '../TeaserCard/Component';
 import './style.scss'
+import { RichTextComponentBlock } from '../RichTextComponent/Component';
 
 type GridProps = {
   columns: {
@@ -15,7 +15,6 @@ type GridProps = {
 
 export const GridBlock: React.FC<GridProps> = ({ columns, content }) => {
   const gridColumns = `
-    container
     grid
     grid-sm-${columns.sm}
     grid-md-${columns.md}
@@ -29,6 +28,8 @@ export const GridBlock: React.FC<GridProps> = ({ columns, content }) => {
         switch (block.blockType) {
           case 'teaserCard':
             return <TeaserCardBlock key={index} {...block} />;
+          case 'richTextBlock':
+            return <RichTextComponentBlock richText={undefined} key={index} {...block} />
           default:
             return <div key={index}>Nieznany blok: {block.blockType}</div>;
         }

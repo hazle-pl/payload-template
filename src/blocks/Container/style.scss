@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  max-width: none;
+
+  .content-wrapper {
+    margin: auto;
+    max-width: 1920px;
+  }
+}
+
+.bg-primary-100 {
+  background-color: var(--primary-100);
+}
+
+.bg-primary-300 {
+  background-color: var(--primary-300);
+}

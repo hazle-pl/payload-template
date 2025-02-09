@@ -14,8 +14,17 @@
   }
 
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+
+    --primary-100: rgb(126, 143, 126);
+    --primary-300: rgb(102, 146, 102);
+    --primary-500: rgb(70, 136, 70);
+    --primary-700: rgb(26, 110, 26);
+    --primary-900: rgb(6, 46, 6);
+
+
+
+    --background: var(--primary-900);
+    --foreground: var(--primary-900);
 
     --card: 240 5% 96%;
     --card-foreground: 222.2 84% 4.9%;
