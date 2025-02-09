@@ -66,14 +66,7 @@ export default function RichText(props: Props) {
   return (
     <RichTextWithoutBlocks
       converters={jsxConverters}
-      className={cn(
-        {
-          'container ': enableGutter,
-          'max-w-none': !enableGutter,
-          'mx-auto prose md:prose-md dark:prose-invert ': enableProse,
-        },
-        className,
-      )}
+      className={`rich-text`}
       {...rest}
     />
   )

@@ -9,6 +9,8 @@ import { FormBlock } from '@/blocks/Form/Component';
 import { MediaBlock } from '@/blocks/MediaBlock/Component';
 import { TeaserCardBlock } from '@/blocks/TeaserCard/Component';
 import { GridBlock } from '@/blocks/Grid/Component';
+import { AccordionBalock } from '@/blocks/Accordion/Component';
+import { RichTextComponentBlock } from './RichTextComponent/Component';
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -18,6 +20,8 @@ const blockComponents = {
   mediaBlock: MediaBlock,
   teaserCard: TeaserCardBlock,
   grid: GridBlock,
+  accordion: AccordionBalock,
+  richTextBlock: RichTextComponentBlock
 };
 
 export const RenderBlocks: React.FC<{

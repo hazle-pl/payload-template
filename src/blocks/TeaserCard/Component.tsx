@@ -9,7 +9,6 @@ type TeaserCardProps = {
   buttonLink?: string;
 };
 
-// ✅ Komponent do renderowania bloku
 export const TeaserCardBlock: React.FC<TeaserCardProps> = ({ title, description, image, buttonText, buttonLink }) => {
   return (
     <div className="teaser-card">

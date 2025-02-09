@@ -23,6 +23,7 @@ import {
   OverviewField,
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
+import { Accordion } from '@/blocks/Accordion/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -78,7 +79,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, TeaserCard, Grid],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, TeaserCard, Grid, Accordion],
               required: true,
               admin: {
                 initCollapsed: true,

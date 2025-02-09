@@ -135,7 +135,28 @@ export interface Page {
       | null;
     media?: (string | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | TeaserCard | Grid)[];
+  layout: (
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | TeaserCard
+    | Grid
+    | {
+        title?: string | null;
+        items?:
+          | {
+              itemTitle: string;
+              content?: (TeaserCard | RichTextBlock)[] | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'accordion';
+      }
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -695,10 +716,34 @@ export interface Grid {
     lg: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
     xl: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
   };
-  content?: TeaserCard[] | null;
+  content?: (TeaserCard | RichTextBlock)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'grid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextBlock".
+ */
+export interface RichTextBlock {
+  richText: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'richTextBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -992,6 +1037,25 @@ export interface PagesSelect<T extends boolean = true> {
         formBlock?: T | FormBlockSelect<T>;
         teaserCard?: T | TeaserCardSelect<T>;
         grid?: T | GridSelect<T>;
+        accordion?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    itemTitle?: T;
+                    content?:
+                      | T
+                      | {
+                          teaserCard?: T | TeaserCardSelect<T>;
+                          richTextBlock?: T | RichTextBlockSelect<T>;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
@@ -1121,7 +1185,17 @@ export interface GridSelect<T extends boolean = true> {
     | T
     | {
         teaserCard?: T | TeaserCardSelect<T>;
+        richTextBlock?: T | RichTextBlockSelect<T>;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "RichTextBlock_select".
+ */
+export interface RichTextBlockSelect<T extends boolean = true> {
+  richText?: T;
   id?: T;
   blockName?: T;
 }
