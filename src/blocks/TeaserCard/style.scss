@@ -1,0 +1,39 @@
+.teaser-card {
+  display: flex;
+
+  &.image-top {
+    flex-direction: column;
+  }
+
+  &.image-bottom {
+    flex-direction: column-reverse;
+  }
+
+  &.image-left {
+    flex-direction: row;
+
+    img {
+      width: 50%;
+    }
+  }
+
+  &.image-right {
+    flex-direction: row-reverse;
+
+    img {
+      width: 50%;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    object-fit: cover;
+  }
+
+  &__content {
+    width: 100%;
+    padding: 16px;
+  }
+}

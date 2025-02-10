@@ -27,7 +27,7 @@ export const GridBlock: React.FC<GridProps> = ({ columns, content }) => {
       {content.map((block, index) => {
         switch (block.blockType) {
           case 'teaserCard':
-            return <TeaserCardBlock key={index} {...block} />;
+            return <TeaserCardBlock title={''} key={index} {...block} />;
           case 'richTextBlock':
             return <RichTextComponentBlock richText={undefined} key={index} {...block} />
           default:

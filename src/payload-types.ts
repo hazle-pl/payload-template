@@ -700,6 +700,37 @@ export interface TeaserCard {
   title: string;
   description: string;
   image?: (string | null) | Media;
+  imagePosition: 'image-left' | 'image-right' | 'image-top' | 'image-bottom';
+  styleVariant: 'variant-1' | 'variant-2' | 'variant-3' | 'variant-4';
+  bg:
+    | 'primary-100'
+    | 'primary-200'
+    | 'primary-300'
+    | 'primary-400'
+    | 'primary-500'
+    | 'primary-600'
+    | 'primary-700'
+    | 'primary-800'
+    | 'primary-900'
+    | 'secondary-100'
+    | 'secondary-200'
+    | 'secondary-300'
+    | 'secondary-400'
+    | 'secondary-500'
+    | 'secondary-600'
+    | 'secondary-700'
+    | 'secondary-800'
+    | 'secondary-900'
+    | 'neutral-100'
+    | 'neutral-200'
+    | 'neutral-300'
+    | 'neutral-400'
+    | 'neutral-500'
+    | 'neutral-600'
+    | 'neutral-700'
+    | 'neutral-800'
+    | 'neutral-900'
+    | 'transparent';
   buttonText?: string | null;
   buttonLink?: string | null;
   id?: string | null;
@@ -752,7 +783,34 @@ export interface RichTextBlock {
  */
 export interface Container {
   containerProps: {
-    bg: 'primary-100' | 'primary-200' | 'primary-300' | 'primary-400';
+    bg:
+      | 'primary-100'
+      | 'primary-200'
+      | 'primary-300'
+      | 'primary-400'
+      | 'primary-500'
+      | 'primary-600'
+      | 'primary-700'
+      | 'primary-800'
+      | 'primary-900'
+      | 'secondary-100'
+      | 'secondary-200'
+      | 'secondary-300'
+      | 'secondary-400'
+      | 'secondary-500'
+      | 'secondary-600'
+      | 'secondary-700'
+      | 'secondary-800'
+      | 'secondary-900'
+      | 'neutral-100'
+      | 'neutral-200'
+      | 'neutral-300'
+      | 'neutral-400'
+      | 'neutral-500'
+      | 'neutral-600'
+      | 'neutral-700'
+      | 'neutral-800'
+      | 'neutral-900';
   };
   content?:
     | (
@@ -1197,6 +1255,9 @@ export interface TeaserCardSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   image?: T;
+  imagePosition?: T;
+  styleVariant?: T;
+  bg?: T;
   buttonText?: T;
   buttonLink?: T;
   id?: T;

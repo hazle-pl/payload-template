@@ -24,7 +24,7 @@ export const ContainerBlock: React.FC<ContainerProps> = ({ containerProps, conte
       {content.map((block, index) => {
         switch (block.blockType) {
           case 'teaserCard':
-            return <TeaserCardBlock key={index} {...block} />;
+            return <TeaserCardBlock title={''} key={index} {...block} />;
           case 'accordion':
             return <AccordionBlock title={''} items={[]} key={index} {...block} />;
           case 'grid':
