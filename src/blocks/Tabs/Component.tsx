@@ -52,7 +52,7 @@ console.log("Current tab content:", items?.[activeIndex]?.content);
             case 'teaserCard':
               return <TeaserCardBlock key={index} {...block} />;
               case 'grid':
-                return <GridBlock columns={{
+                return <GridBlock key={index} columns={{
                     sm: '',
                     md: '',
                     lg: '',

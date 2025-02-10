@@ -1,4 +1,31 @@
 .accordion {
     width: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    &__item {
+      background-color: hsla(var(--neutral-100));
+      color: hsla(var(--neutral-900));
+      padding: 16px;
+
+      &--header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.5rem;
+
+        i {
+          transition: 0.25s;
+        }
+
+        &.active {
+          i {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
   }

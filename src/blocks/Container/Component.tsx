@@ -5,6 +5,7 @@ import './style.scss'
 import { GridBlock } from '../Grid/Component';
 import { AccordionBlock } from '../Accordion/Component'
 import { TabsBlock } from '../Tabs/Component';
+import { RichTextComponentBlock } from '../RichTextComponent/Component';
 
 type ContainerProps = {
   containerProps: {
@@ -30,6 +31,8 @@ export const ContainerBlock: React.FC<ContainerProps> = ({ containerProps, conte
             return <AccordionBlock title={''} items={[]} key={index} {...block} />;
           case 'tabs':
             return <TabsBlock title={''} items={[]} {...block}  />;
+          case 'richTextBlock':
+            return <RichTextComponentBlock richText={undefined} key={index} {...block} />
           case 'grid':
               return <GridBlock columns={{
                 sm: '',

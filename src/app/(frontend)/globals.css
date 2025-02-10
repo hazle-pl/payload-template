@@ -44,7 +44,7 @@
   --neutral-500: 0 0% 62%;
   --neutral-600: 0 0% 51%;
   --neutral-700: 0 0% 39%;
-  --neutral-800: 0 0% 27%;
+  --neutral-800: 0 0% 15%;
   --neutral-900: 0 0% 5%;
 
   --transparent: transparent;
@@ -134,3 +134,22 @@ html[data-theme='light'] {
 .bg-neutral-800 { background-color: hsla(var(--neutral-800)) }
 .bg-neutral-900 { background-color: hsla(var(--neutral-900)) }
 .bg-transparent { background-color: hsla(var(--transparent)) }
+
+
+/* Font sizes */
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1rem;
+}

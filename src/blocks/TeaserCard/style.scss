@@ -25,6 +25,10 @@
     }
   }
 
+  &.bg-neutral-100 {
+    color: hsla(var(--neutral-900));
+  }
+
   &__image {
     width: 100%;
     aspect-ratio: 16 / 9;
