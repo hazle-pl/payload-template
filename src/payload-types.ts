@@ -156,6 +156,7 @@ export interface Page {
         blockName?: string | null;
         blockType: 'accordion';
       }
+    | Container
   )[];
   meta?: {
     title?: string | null;
@@ -747,6 +748,38 @@ export interface RichTextBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container".
+ */
+export interface Container {
+  containerProps: {
+    bg: 'primary-100' | 'primary-200' | 'primary-300' | 'primary-400';
+  };
+  content?:
+    | (
+        | TeaserCard
+        | RichTextBlock
+        | {
+            title?: string | null;
+            items?:
+              | {
+                  itemTitle: string;
+                  content?: (TeaserCard | RichTextBlock)[] | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'accordion';
+          }
+        | Grid
+      )[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'container';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1056,6 +1089,7 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        container?: T | ContainerSelect<T>;
       };
   meta?:
     | T
@@ -1196,6 +1230,45 @@ export interface GridSelect<T extends boolean = true> {
  */
 export interface RichTextBlockSelect<T extends boolean = true> {
   richText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Container_select".
+ */
+export interface ContainerSelect<T extends boolean = true> {
+  containerProps?:
+    | T
+    | {
+        bg?: T;
+      };
+  content?:
+    | T
+    | {
+        teaserCard?: T | TeaserCardSelect<T>;
+        richTextBlock?: T | RichTextBlockSelect<T>;
+        accordion?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    itemTitle?: T;
+                    content?:
+                      | T
+                      | {
+                          teaserCard?: T | TeaserCardSelect<T>;
+                          richTextBlock?: T | RichTextBlockSelect<T>;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        grid?: T | GridSelect<T>;
+      };
   id?: T;
   blockName?: T;
 }

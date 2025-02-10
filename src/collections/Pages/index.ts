@@ -80,7 +80,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, TeaserCard, Grid, Accordion],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, TeaserCard, Grid, Accordion, Container],
               required: true,
               admin: {
                 initCollapsed: true,
