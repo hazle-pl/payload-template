@@ -20,6 +20,11 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 import { Accordion } from '@/blocks/Accordion/config'
 import { Container } from '@/blocks/Container/config'
+import { FormBlock } from '@/blocks/Form/config'
+import { Archive } from '@/blocks/ArchiveBlock/config'
+import { MediaBlock } from '@/blocks/MediaBlock/config'
+import { Content } from '@/blocks/Content/config'
+import { CallToAction } from '@/blocks/CallToAction/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -75,7 +80,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [TeaserCard, Grid, Accordion, Container],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, TeaserCard, Grid, Accordion],
               required: true,
               admin: {
                 initCollapsed: true,
