@@ -12,6 +12,7 @@ import { ContentBlock } from './Content/Component';
 import { CallToActionBlock } from './CallToAction/Component';
 import { FormBlock } from './Form/config';
 import { MediaBlock } from './MediaBlock/config';
+import { TabsBlock } from './Tabs/Component';
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -24,6 +25,7 @@ const blockComponents = {
   richTextBlock: RichTextComponentBlock,
   accordion: AccordionBlock,
   container: ContainerBlock,
+  tabs: TabsBlock,
 };
 
 export const RenderBlocks: React.FC<{

@@ -3,6 +3,7 @@ import { TeaserCard } from '../TeaserCard/config';
 import { RichTextComponent } from '../RichTextComponent/config';
 import { Accordion } from '../Accordion/config';
 import { Grid } from '../Grid/config';
+import { Tabs } from '../Tabs/config';
 
 export const Container: Block = {
   slug: 'container',
@@ -18,7 +19,7 @@ export const Container: Block = {
           label: 'Background color',
           type: 'select',
           required: true,
-          defaultValue: '1',
+          defaultValue: 'neutral-900',
           options: [
             { label: 'Primary 100', value: 'primary-100' },
             { label: 'Primary 200', value: 'primary-200' },
@@ -57,7 +58,7 @@ export const Container: Block = {
       name: 'content',
       label: 'Bloki treści',
       type: 'blocks',
-      blocks: [TeaserCard, RichTextComponent, Accordion, Grid],
+      blocks: [TeaserCard, RichTextComponent, Accordion, Grid, Tabs],
     },
   ],
 };

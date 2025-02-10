@@ -4,6 +4,7 @@ import { TeaserCardBlock } from '../TeaserCard/Component';
 import './style.scss'
 import { GridBlock } from '../Grid/Component';
 import { AccordionBlock } from '../Accordion/Component'
+import { TabsBlock } from '../Tabs/Component';
 
 type ContainerProps = {
   containerProps: {
@@ -27,6 +28,8 @@ export const ContainerBlock: React.FC<ContainerProps> = ({ containerProps, conte
             return <TeaserCardBlock title={''} key={index} {...block} />;
           case 'accordion':
             return <AccordionBlock title={''} items={[]} key={index} {...block} />;
+          case 'tabs':
+            return <TabsBlock title={''} items={[]} {...block}  />;
           case 'grid':
               return <GridBlock columns={{
                 sm: '',

@@ -1,0 +1,28 @@
+.tabs {
+    .tabs-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+  
+    .tabs-header {
+      display: flex;
+      border-bottom: 1px solid #ccc;
+  
+      .tab-button {
+        padding: 10px 20px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-right: 10px;
+  
+        &.active {
+          border-bottom: 2px solid #000;
+        }
+      }
+    }
+  
+    .tabs-content {
+      padding: 20px 0;
+    }
+  }
