@@ -138,6 +138,12 @@ export interface Page {
   layout: (
     | TeaserCard
     | Grid
+    | CallToActionBlock
+    | ContentBlock
+    | MediaBlock
+    | ArchiveBlock
+    | FormBlock
+    | Container
     | {
         title?: string | null;
         items?:
