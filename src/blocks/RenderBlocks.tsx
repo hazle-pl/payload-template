@@ -13,6 +13,7 @@ import { CallToActionBlock } from './CallToAction/Component';
 import { FormBlock } from './Form/config';
 import { MediaBlock } from './MediaBlock/config';
 import { TabsBlock } from './Tabs/Component';
+import { ContentBannerBlock } from './ContentBanner/Component';
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -26,6 +27,7 @@ const blockComponents = {
   accordion: AccordionBlock,
   container: ContainerBlock,
   tabs: TabsBlock,
+  contentBanner: ContentBannerBlock,
 };
 
 export const RenderBlocks: React.FC<{

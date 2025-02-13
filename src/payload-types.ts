@@ -170,6 +170,7 @@ export interface Page {
         blockName?: string | null;
         blockType: 'tabs';
       }
+    | ContentBanner
   )[];
   meta?: {
     title?: string | null;
@@ -824,6 +825,11 @@ export interface Container {
       | 'neutral-700'
       | 'neutral-800'
       | 'neutral-900';
+    flexProps?: {
+      direction?: ('row' | 'column') | null;
+      justify?: ('flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly') | null;
+      align?: ('flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline') | null;
+    };
   };
   content?:
     | (
@@ -856,11 +862,78 @@ export interface Container {
             blockName?: string | null;
             blockType: 'tabs';
           }
+        | ContentBanner
       )[]
     | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'container';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentBanner".
+ */
+export interface ContentBanner {
+  contentBannerProps: {
+    bg:
+      | 'primary-100'
+      | 'primary-200'
+      | 'primary-300'
+      | 'primary-400'
+      | 'primary-500'
+      | 'primary-600'
+      | 'primary-700'
+      | 'primary-800'
+      | 'primary-900'
+      | 'secondary-100'
+      | 'secondary-200'
+      | 'secondary-300'
+      | 'secondary-400'
+      | 'secondary-500'
+      | 'secondary-600'
+      | 'secondary-700'
+      | 'secondary-800'
+      | 'secondary-900'
+      | 'neutral-100'
+      | 'neutral-200'
+      | 'neutral-300'
+      | 'neutral-400'
+      | 'neutral-500'
+      | 'neutral-600'
+      | 'neutral-700'
+      | 'neutral-800'
+      | 'neutral-900';
+    flexProps?: {
+      direction?: ('row' | 'column') | null;
+      justify?: ('flex-start' | 'center' | 'flex-end' | 'space-between' | 'space-around' | 'space-evenly') | null;
+      align?: ('flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline') | null;
+    };
+    richText: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    buttons?:
+      | {
+          label: string;
+          link: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contentBanner';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1194,6 +1267,7 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        contentBanner?: T | ContentBannerSelect<T>;
       };
   meta?:
     | T
@@ -1349,6 +1423,13 @@ export interface ContainerSelect<T extends boolean = true> {
     | T
     | {
         bg?: T;
+        flexProps?:
+          | T
+          | {
+              direction?: T;
+              justify?: T;
+              align?: T;
+            };
       };
   content?:
     | T
@@ -1394,6 +1475,35 @@ export interface ContainerSelect<T extends boolean = true> {
                   };
               id?: T;
               blockName?: T;
+            };
+        contentBanner?: T | ContentBannerSelect<T>;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentBanner_select".
+ */
+export interface ContentBannerSelect<T extends boolean = true> {
+  contentBannerProps?:
+    | T
+    | {
+        bg?: T;
+        flexProps?:
+          | T
+          | {
+              direction?: T;
+              justify?: T;
+              align?: T;
+            };
+        richText?: T;
+        buttons?:
+          | T
+          | {
+              label?: T;
+              link?: T;
+              id?: T;
             };
       };
   id?: T;

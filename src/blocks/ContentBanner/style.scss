@@ -1,14 +1,10 @@
-.container {
-  width: 100%;
-  max-width: none;
-  padding: 64px 32px;
-
-  .content-wrapper {
-    margin: auto;
-    max-width: 1920px;
+.content-banner {
     display: flex;
     flex-direction: column;
     gap: 32px;
+    padding: 32px;
+    border-radius: 15px;
+    max-width: 1200px;
 
     &.flex-direction-row {
       flex-direction: row;
@@ -46,6 +42,7 @@
     }
     &.align-center {
       align-items: center;
+      text-align: center;
     }
     &.align-end {
       align-items: flex-end;
@@ -53,5 +50,4 @@
     &.align-baseline {
       align-items: baseline;
     }
-  }
 }

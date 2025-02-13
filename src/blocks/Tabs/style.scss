@@ -1,28 +1,34 @@
 .tabs {
-    .tabs-title {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-  
-    .tabs-header {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+    &__header {
       display: flex;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid hsla(var(--neutral-100));
   
-      .tab-button {
-        padding: 10px 20px;
+      &--button {
         border: none;
         background: none;
         cursor: pointer;
-        font-size: 16px;
-        margin-right: 10px;
+        padding: 16px 32px;
+        transition: 0.25s;
   
         &.active {
-          border-bottom: 2px solid #000;
+          background-color: hsla(var(--neutral-100));
+          color: hsla(var(--neutral-900));
+        }
+
+        &:hover {
+          background-color: hsla(var(--neutral-300));
+          color: hsla(var(--neutral-900));
         }
       }
     }
   
-    .tabs-content {
+    .tabs__content {
       padding: 20px 0;
     }
   }

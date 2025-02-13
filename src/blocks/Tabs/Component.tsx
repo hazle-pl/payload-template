@@ -18,10 +18,6 @@ type TabsProps = {
 export const TabsBlock: React.FC<TabsProps> = ({ title, items }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  console.log("Items:", items);
-console.log("Active index:", activeIndex);
-console.log("Current tab content:", items?.[activeIndex]?.content);
-
   if (!items || items.length === 0) {
     return <div>No tabs available.</div>;
   }
@@ -34,19 +30,19 @@ console.log("Current tab content:", items?.[activeIndex]?.content);
 
   return (
     <div className="tabs">
-      {title && <h2 className="tabs-title">{title}</h2>}
-      <div className="tabs-header">
+      {title && <h2>{title}</h2>}
+      <div className="tabs__header">
         {items.map((item, index) => (
           <button
             key={index}
-            className={`tab-button ${activeIndex === index ? 'active' : ''}`}
+            className={`tabs__header--button ${activeIndex === index ? 'active' : ''}`}
             onClick={() => changeTab(index)}
           >
             {item.tabTitle}
           </button>
         ))}
       </div>
-      <div className="tabs-content">
+      <div className="tabs__content">
         {items[activeIndex]?.content.map((block, index) => {
           switch (block.blockType) {
             case 'teaserCard':
