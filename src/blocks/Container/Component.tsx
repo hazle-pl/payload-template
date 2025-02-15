@@ -6,6 +6,7 @@ import { AccordionBlock } from '../Accordion/Component';
 import { TabsBlock } from '../Tabs/Component';
 import { RichTextComponentBlock } from '../RichTextComponent/Component';
 import { ContentBannerBlock } from '../ContentBanner/Component';
+import { BreadcrumbBlock } from '../Breadcrumb/Component';
 
 type ContainerProps = {
   containerProps: {
@@ -42,6 +43,8 @@ export const ContainerBlock: React.FC<ContainerProps> = ({ containerProps, conte
               return <AccordionBlock title={''} items={[]} key={index} {...block} />;
             case 'tabs':
               return <TabsBlock key={index} {...block} />;
+            case 'breadcrumb':
+              return <BreadcrumbBlock key={index} {...block}/>;
             case 'contentBanner':
               return <ContentBannerBlock contentBannerProps={{
                 bg: '',

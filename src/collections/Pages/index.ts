@@ -27,6 +27,7 @@ import { Content } from '@/blocks/Content/config'
 import { CallToAction } from '@/blocks/CallToAction/config'
 import { Tabs } from '@/blocks/Tabs/config'
 import { ContentBanner } from '@/blocks/ContentBanner/config'
+import { Breadcrumb } from '@/blocks/Breadcrumb/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -82,7 +83,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, TeaserCard, Grid, Accordion, Container, Tabs, ContentBanner],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, TeaserCard, Grid, Accordion, Container, Tabs, ContentBanner, Breadcrumb],
               required: true,
               admin: {
                 initCollapsed: true,

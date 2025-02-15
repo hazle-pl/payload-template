@@ -50,4 +50,9 @@
     &.align-baseline {
       align-items: baseline;
     }
+    /*Colors*/
+
+    &.bg-neutral-100 {
+      color: hsla(var(--neutral-900));
+    }
 }

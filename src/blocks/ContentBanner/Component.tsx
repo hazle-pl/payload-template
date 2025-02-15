@@ -1,6 +1,7 @@
 import React from 'react';
 import RichText from '@/components/RichText';
 import './style.scss';
+import Link from 'next/link';
 
 interface Button {
   label: string;
@@ -13,9 +14,9 @@ interface ContentBannerProps {
     richText: any;
     buttons: Button[];
     flexProps: {
-        direction: string;
-    justify: string;
-    align: string;
+      direction: string;
+      justify: string;
+      align: string;
     }
   };
 }
@@ -35,9 +36,9 @@ export const ContentBannerBlock: React.FC<ContentBannerProps> = ({ contentBanner
       <RichText data={richText} />
       <div className="button-container">
         {buttons.map((button, index) => (
-          <a key={index} href={button.link} className="btn">
+          <Link key={index} href={button.link} className="btn">
             {button.label}
-          </a>
+          </Link>
         ))}
       </div>
     </div>

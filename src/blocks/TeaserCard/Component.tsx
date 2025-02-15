@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import './style.scss';
+import Link from 'next/link';
 
 type TeaserCardProps = {
   title: string;
@@ -22,9 +23,9 @@ export const TeaserCardBlock: React.FC<TeaserCardProps> = ({ title, description,
         <h3 className="teaser-card__title">{title}</h3>
         <p className="teaser-card__description">{description}</p>
         {buttonText && buttonLink && (
-          <a href={buttonLink} className="teaser-card__button">
+          <Link href={buttonLink} className="btn">
             {buttonText}
-          </a>
+          </Link>
         )}
       </div>
     </div>

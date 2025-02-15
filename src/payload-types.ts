@@ -171,6 +171,19 @@ export interface Page {
         blockType: 'tabs';
       }
     | ContentBanner
+    | {
+        autoBuild?: boolean | null;
+        items?:
+          | {
+              label: string;
+              href: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'breadcrumb';
+      }
   )[];
   meta?: {
     title?: string | null;
@@ -863,6 +876,19 @@ export interface Container {
             blockType: 'tabs';
           }
         | ContentBanner
+        | {
+            autoBuild?: boolean | null;
+            items?:
+              | {
+                  label: string;
+                  href: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'breadcrumb';
+          }
       )[]
     | null;
   id?: string | null;
@@ -1268,6 +1294,20 @@ export interface PagesSelect<T extends boolean = true> {
               blockName?: T;
             };
         contentBanner?: T | ContentBannerSelect<T>;
+        breadcrumb?:
+          | T
+          | {
+              autoBuild?: T;
+              items?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
@@ -1477,6 +1517,20 @@ export interface ContainerSelect<T extends boolean = true> {
               blockName?: T;
             };
         contentBanner?: T | ContentBannerSelect<T>;
+        breadcrumb?:
+          | T
+          | {
+              autoBuild?: T;
+              items?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   id?: T;
   blockName?: T;

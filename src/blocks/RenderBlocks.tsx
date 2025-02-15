@@ -14,6 +14,7 @@ import { FormBlock } from './Form/config';
 import { MediaBlock } from './MediaBlock/config';
 import { TabsBlock } from './Tabs/Component';
 import { ContentBannerBlock } from './ContentBanner/Component';
+import { BreadcrumbBlock } from './Breadcrumb/Component';
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -28,6 +29,7 @@ const blockComponents = {
   container: ContainerBlock,
   tabs: TabsBlock,
   contentBanner: ContentBannerBlock,
+  breadcrumb: BreadcrumbBlock,
 };
 
 export const RenderBlocks: React.FC<{
