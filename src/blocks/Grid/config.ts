@@ -1,6 +1,7 @@
 import type { Block } from 'payload';
 import { TeaserCard } from '../TeaserCard/config';
 import { RichTextComponent } from '../RichTextComponent/config';
+import { Image } from '../Image/config';
 
 export const Grid: Block = {
   slug: 'grid',
@@ -101,7 +102,7 @@ export const Grid: Block = {
       name: 'content',
       label: 'Bloki treści',
       type: 'blocks',
-      blocks: [TeaserCard, RichTextComponent],
+      blocks: [TeaserCard, RichTextComponent, Image],
     },
   ],
 };

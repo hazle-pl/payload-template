@@ -6,6 +6,7 @@ import { Grid } from '../Grid/config';
 import { Tabs } from '../Tabs/config';
 import { ContentBanner } from '../ContentBanner/config';
 import { Breadcrumb } from '../Breadcrumb/config';
+import { Image } from '../Image/config';
 
 export const Container: Block = {
   slug: 'container',
@@ -105,7 +106,7 @@ export const Container: Block = {
       name: 'content',
       label: 'Bloki treści',
       type: 'blocks',
-      blocks: [TeaserCard, RichTextComponent, Accordion, Grid, Tabs, ContentBanner, Breadcrumb],
+      blocks: [TeaserCard, RichTextComponent, Accordion, Grid, Tabs, ContentBanner, Breadcrumb, Image],
     },
   ],
 };

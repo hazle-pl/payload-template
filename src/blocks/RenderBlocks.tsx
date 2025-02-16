@@ -16,6 +16,7 @@ import { TabsBlock } from './Tabs/Component';
 import { ContentBannerBlock } from './ContentBanner/Component';
 import { BreadcrumbBlock } from './Breadcrumb/Component';
 import { HeroBannerBlock } from './HeroBanner/Component';
+import { ImageBlock } from './Image/Component';
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -32,6 +33,7 @@ const blockComponents = {
   contentBanner: ContentBannerBlock,
   breadcrumb: BreadcrumbBlock,
   heroBanner: HeroBannerBlock,
+  image: ImageBlock,
 };
 
 export const RenderBlocks: React.FC<{

@@ -1,7 +1,5 @@
 import type { GlobalConfig } from 'payload'
-
-import { link } from '@/fields/link'
-import { revalidateFooter } from './hooks/revalidateFooter'
+import { Grid } from '@/blocks/Grid/config'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
@@ -10,23 +8,10 @@ export const Footer: GlobalConfig = {
   },
   fields: [
     {
-      name: 'navItems',
-      type: 'array',
-      fields: [
-        link({
-          appearances: false,
-        }),
-      ],
-      maxRows: 6,
-      admin: {
-        initCollapsed: true,
-        components: {
-          RowLabel: '@/Footer/RowLabel#RowLabel',
-        },
-      },
+      name: 'content',
+      label: 'Bloki treści',
+      type: 'blocks',
+      blocks: [Grid],
     },
   ],
-  hooks: {
-    afterChange: [revalidateFooter],
-  },
 }

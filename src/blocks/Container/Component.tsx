@@ -7,6 +7,7 @@ import { TabsBlock } from '../Tabs/Component';
 import { RichTextComponentBlock } from '../RichTextComponent/Component';
 import { ContentBannerBlock } from '../ContentBanner/Component';
 import { BreadcrumbBlock } from '../Breadcrumb/Component';
+import { ImageBlock } from '../Image/Component';
 
 type ContainerProps = {
   containerProps: {
@@ -45,6 +46,8 @@ export const ContainerBlock: React.FC<ContainerProps> = ({ containerProps, conte
               return <TabsBlock key={index} {...block} />;
             case 'breadcrumb':
               return <BreadcrumbBlock key={index} {...block}/>;
+            case 'image':
+              return <ImageBlock key={index} {...block}/>;
             case 'contentBanner':
               return <ContentBannerBlock contentBannerProps={{
                 bg: '',

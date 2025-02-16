@@ -142,6 +142,7 @@ export interface Page {
         blockType: 'breadcrumb';
       }
     | HeroBanner
+    | Image
   )[];
   meta?: {
     title?: string | null;
@@ -733,7 +734,7 @@ export interface Grid {
     lg: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
     xl: '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
   };
-  content?: (TeaserCard | RichTextBlock)[] | null;
+  content?: (TeaserCard | RichTextBlock | Image)[] | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'grid';
@@ -761,6 +762,16 @@ export interface RichTextBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'richTextBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "image".
+ */
+export interface Image {
+  image?: (string | null) | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'image';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -847,6 +858,7 @@ export interface Container {
             blockName?: string | null;
             blockType: 'breadcrumb';
           }
+        | Image
       )[]
     | null;
   id?: string | null;
@@ -1310,6 +1322,7 @@ export interface PagesSelect<T extends boolean = true> {
               blockName?: T;
             };
         heroBanner?: T | HeroBannerSelect<T>;
+        image?: T | ImageSelect<T>;
       };
   meta?:
     | T
@@ -1443,6 +1456,7 @@ export interface GridSelect<T extends boolean = true> {
     | {
         teaserCard?: T | TeaserCardSelect<T>;
         richTextBlock?: T | RichTextBlockSelect<T>;
+        image?: T | ImageSelect<T>;
       };
   id?: T;
   blockName?: T;
@@ -1453,6 +1467,15 @@ export interface GridSelect<T extends boolean = true> {
  */
 export interface RichTextBlockSelect<T extends boolean = true> {
   richText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "image_select".
+ */
+export interface ImageSelect<T extends boolean = true> {
+  image?: T;
   id?: T;
   blockName?: T;
 }
@@ -1533,6 +1556,7 @@ export interface ContainerSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        image?: T | ImageSelect<T>;
       };
   id?: T;
   blockName?: T;
@@ -2033,26 +2057,7 @@ export interface Header {
  */
 export interface Footer {
   id: string;
-  navItems?:
-    | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | ({
-                relationTo: 'pages';
-                value: string | Page;
-              } | null)
-            | ({
-                relationTo: 'posts';
-                value: string | Post;
-              } | null);
-          url?: string | null;
-          label: string;
-        };
-        id?: string | null;
-      }[]
-    | null;
+  content?: Grid[] | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -2084,19 +2089,10 @@ export interface HeaderSelect<T extends boolean = true> {
  * via the `definition` "footer_select".
  */
 export interface FooterSelect<T extends boolean = true> {
-  navItems?:
+  content?:
     | T
     | {
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-            };
-        id?: T;
+        grid?: T | GridSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
