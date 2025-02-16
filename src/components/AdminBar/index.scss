@@ -4,4 +4,17 @@
   @include small-break {
     display: none;
   }
+
+  width: 200px;
+  position: fixed;
+  top: 162px;
+  height: calc(100% - 162px);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
 }
