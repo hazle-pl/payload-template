@@ -7,11 +7,21 @@ import { GridBlock } from '@/blocks/Grid/Component';
 import { AccordionBlock } from '@/blocks/Accordion/Component';
 import { RichTextComponentBlock } from './RichTextComponent/Component';
 import { ContainerBlock } from './Container/Component';
+import { ArchiveBlock } from './ArchiveBlock/Component';
+import { ContentBlock } from './Content/Component';
+import { CallToActionBlock } from './CallToAction/Component';
+import { FormBlock } from './Form/config';
+import { MediaBlock } from './MediaBlock/config';
 import { TabsBlock } from './Tabs/Component';
 import { ContentBannerBlock } from './ContentBanner/Component';
 import { BreadcrumbBlock } from './Breadcrumb/Component';
 
 const blockComponents = {
+  archive: ArchiveBlock,
+  content: ContentBlock,
+  cta: CallToActionBlock,
+  formBlock: FormBlock,
+  mediaBlock: MediaBlock,
   teaserCard: TeaserCardBlock,
   grid: GridBlock,
   richTextBlock: RichTextComponentBlock,
@@ -41,6 +51,7 @@ export const RenderBlocks: React.FC<{
             if (Block) {
               return (
                 <>
+                  {/* @ts-expect-error there may be some mismatch between the expected types here */}
                   <Block {...block} disableInnerContainer />
                 </>
               );
