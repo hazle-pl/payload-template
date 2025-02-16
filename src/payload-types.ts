@@ -141,6 +141,7 @@ export interface Page {
         blockName?: string | null;
         blockType: 'breadcrumb';
       }
+    | HeroBanner
   )[];
   meta?: {
     title?: string | null;
@@ -920,6 +921,71 @@ export interface ContentBanner {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBanner".
+ */
+export interface HeroBanner {
+  text: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  buttons?:
+    | {
+        buttonText: string;
+        buttonLink: string;
+        id?: string | null;
+      }[]
+    | null;
+  backgroundColor?:
+    | (
+        | 'primary-100'
+        | 'primary-200'
+        | 'primary-300'
+        | 'primary-400'
+        | 'primary-500'
+        | 'primary-600'
+        | 'primary-700'
+        | 'primary-800'
+        | 'primary-900'
+        | 'secondary-100'
+        | 'secondary-200'
+        | 'secondary-300'
+        | 'secondary-400'
+        | 'secondary-500'
+        | 'secondary-600'
+        | 'secondary-700'
+        | 'secondary-800'
+        | 'secondary-900'
+        | 'neutral-100'
+        | 'neutral-200'
+        | 'neutral-300'
+        | 'neutral-400'
+        | 'neutral-500'
+        | 'neutral-600'
+        | 'neutral-700'
+        | 'neutral-800'
+        | 'neutral-900'
+      )
+    | null;
+  image?: (string | null) | Media;
+  backgroundImage?: (string | null) | Media;
+  height: 'xs' | 'md' | 'xl';
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'heroBanner';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1243,6 +1309,7 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        heroBanner?: T | HeroBannerSelect<T>;
       };
   meta?:
     | T
@@ -1495,6 +1562,26 @@ export interface ContentBannerSelect<T extends boolean = true> {
               id?: T;
             };
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HeroBanner_select".
+ */
+export interface HeroBannerSelect<T extends boolean = true> {
+  text?: T;
+  buttons?:
+    | T
+    | {
+        buttonText?: T;
+        buttonLink?: T;
+        id?: T;
+      };
+  backgroundColor?: T;
+  image?: T;
+  backgroundImage?: T;
+  height?: T;
   id?: T;
   blockName?: T;
 }

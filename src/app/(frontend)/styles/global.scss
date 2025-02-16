@@ -96,10 +96,6 @@ html {
   opacity: 0;
 }
 
-body{
-    padding-top: 64px;
-}
-
 html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
@@ -182,4 +178,25 @@ h4 {
   &:hover {
     background-color: hsla(var(--neutral-700));
   }
+}
+
+
+/* Animations */
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.component-to-animate{
+  animation: fadeIn 5s ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0%;
+  opacity: 0;
 }
