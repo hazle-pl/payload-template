@@ -1,5 +1,6 @@
 import type { GlobalConfig } from 'payload'
 import { Grid } from '@/blocks/Grid/config'
+import { revalidateFooter } from './hooks/revalidateFooter'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
@@ -14,4 +15,7 @@ export const Footer: GlobalConfig = {
       blocks: [Grid],
     },
   ],
+  hooks: {
+    afterChange: [revalidateFooter],
+  },
 }
