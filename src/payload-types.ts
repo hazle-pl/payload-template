@@ -686,6 +686,7 @@ export interface TeaserCard {
   title: string;
   description: string;
   image?: (string | null) | Media;
+  icon?: string | null;
   imagePosition: 'image-left' | 'image-right' | 'image-top' | 'image-bottom';
   styleVariant: 'variant-1' | 'variant-2' | 'variant-3' | 'variant-4';
   bg:
@@ -1430,6 +1431,7 @@ export interface TeaserCardSelect<T extends boolean = true> {
   title?: T;
   description?: T;
   image?: T;
+  icon?: T;
   imagePosition?: T;
   styleVariant?: T;
   bg?: T;

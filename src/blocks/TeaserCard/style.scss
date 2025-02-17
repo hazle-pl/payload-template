@@ -36,6 +36,13 @@
     object-fit: cover;
   }
 
+  &__icon {
+    padding: 16px;
+    font-size: 2.5rem;
+    padding-bottom: 0px;
+    color: hsla(var(--primary-500));
+  }
+
   &__content {
     width: 100%;
     padding: 16px;

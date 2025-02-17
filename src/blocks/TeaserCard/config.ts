@@ -24,6 +24,12 @@ export const TeaserCard: Block = {
       required: false,
     },
     {
+      name: 'icon',
+      label: 'Ikona (font-awesome)',
+      type: 'text',
+      required: false,
+    },
+    {
       name: 'imagePosition',
       label: 'Pozycja zdjęcia',
       type: 'select',

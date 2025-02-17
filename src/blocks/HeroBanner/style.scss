@@ -3,7 +3,7 @@ $mobile: 1000px;
 .hero-banner {
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: top center;
 
     &.height {
         &-xs {
@@ -19,7 +19,7 @@ $mobile: 1000px;
         }
 
         @media (max-width: $mobile) { 
-            &-xs,&-md,&-xl {
+            &-xs, &-md, &-xl {
                 height: fit-content;
             }
         }
@@ -27,6 +27,8 @@ $mobile: 1000px;
 
     &__content {
         width: 100%;
+        animation: fade-in-up 1.5s ease-out forwards;
+        opacity: 0;
     }
 
     &__image {
@@ -36,7 +38,8 @@ $mobile: 1000px;
             width: 100%;
         }
     }
-    .content-wrapper{
+
+    .content-wrapper {
         flex-direction: row;
         height: 100%;
         display: flex;
@@ -46,5 +49,16 @@ $mobile: 1000px;
             flex-direction: column-reverse;
             padding: 128px 0;
         }
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
