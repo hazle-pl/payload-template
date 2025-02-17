@@ -1,4 +1,3 @@
-import clsx from 'clsx'
 import React from 'react'
 
 interface Props {
@@ -8,7 +7,7 @@ interface Props {
 }
 
 export const Logo = (props: Props) => {
-  const { loading: loadingFromProps, priority: priorityFromProps, className } = props
+  const { loading: loadingFromProps, priority: priorityFromProps } = props
 
   const loading = loadingFromProps || 'lazy'
   const priority = priorityFromProps || 'low'
@@ -22,7 +21,6 @@ export const Logo = (props: Props) => {
       loading={loading}
       fetchPriority={priority}
       decoding="async"
-      className={clsx('max-w-[9.375rem] w-full h-[34px]', className)}
       src="/media/logo-hazle-x-payload.png"
     />
   )
